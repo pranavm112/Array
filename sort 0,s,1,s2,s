@@ -1,0 +1,36 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+
+        //sort(nums.begin(),nums.end());
+        
+        /* Brute 
+            if we sort array using merge sort time complexity will be nlogn.
+           
+           Better
+            it can be counting no. of 0's, 1's, 2's and then inserting them based on thier counts
+            but it will have time complexity of 2n; 1n to count numbers and another n is for inserting them
+        */
+
+
+        
+        int low=0, mid=0, high=nums.size()-1;
+
+        while(mid <= high){
+            if(nums[mid]==0){
+                swap(nums[low],nums[mid]);
+                low++;
+                mid++;
+            }
+
+            else if(nums[mid]==1){
+                mid++;
+            }
+
+            else{
+            swap(nums[mid],nums[high]);
+            high--;
+            }
+        }
+    }
+};
